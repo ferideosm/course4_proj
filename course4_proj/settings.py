@@ -38,7 +38,8 @@ class Dev(Configuration):
     SESSION_COOKIE_SAMESITE = "None"
 
 
-    # Application definition
+    CELERY_RESULT_BACKEND = "django-db"
+    CELERY_BROKER_URL = "redis://localhost:6379/0"
 
     INSTALLED_APPS = [
         'django.contrib.admin',
@@ -48,7 +49,8 @@ class Dev(Configuration):
         'django.contrib.messages',
         'django.contrib.staticfiles',
         'movies',
-        'gh'
+        'gh',
+        'django_celery_results'
     ]
 
     MIDDLEWARE = [
